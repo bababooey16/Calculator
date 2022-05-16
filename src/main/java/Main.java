@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -21,20 +22,38 @@ public class Main {
 
         double totalArea = area;
 
+        //Adding multiple objects
         if (object.equals("y")) {
-            System.out.println("What is the total width of your objects?");
-            int objectWidth = scan.nextInt();
 
-            //add array later
+            System.out.println("How many objects are on your wall?");
+            int[] objectsArray = new int[scan.nextInt()];
+            int[] objectAreaList = new int[objectsArray.length];
 
-            System.out.println("What is the total height of your objects?");
-            int objectHeight = scan.nextInt();
-            int objectArea = (objectHeight * objectWidth);
-            System.out.println("Object Area= " + objectArea);
+            int objectCount = objectsArray.length;
+            int objectArea = 0;
+            for (int i = 0; i < objectCount; i++) {
+                System.out.println("What is the width of your object?");
+                int objectWidth = scan.nextInt();
 
-            totalArea = (area - objectArea);
+
+                System.out.println("What is the height of your object?");
+                int objectHeight = scan.nextInt();
+
+                objectArea = (objectHeight * objectWidth);
+                System.out.println("Object Area= " + objectArea);
+
+
+                objectAreaList[i] = objectArea;
+                System.out.println("Your object area's " + Arrays.toString(objectAreaList));
+            }
+            int objectTotal = 0;
+            for (int j : objectAreaList) {
+                objectTotal += j;
+
+            }
+            totalArea = (area - objectTotal);
             int totalAreaF = (int) totalArea;
-            System.out.println("your total area is " +totalAreaF);
+            System.out.println("your total area is " + totalAreaF);
         }
 
 
