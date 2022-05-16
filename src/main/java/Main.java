@@ -17,8 +17,9 @@ public class Main {
         int area = width * height;
         System.out.println("The area of your wall is " + area + " metres squared");
 
-        System.out.println("Do you have exclusions (door/window, y/n)?");
-        String object = objectScan.nextLine();
+        System.out.println("Do you have exclusions (doors/windows etc?, y/n)?");
+        String object = objectScan.nextLine().toLowerCase();
+
 
         double totalArea = area;
 
@@ -30,7 +31,7 @@ public class Main {
             int[] objectAreaList = new int[objectsArray.length];
 
             int objectCount = objectsArray.length;
-            int objectArea = 0;
+            int objectArea;
             for (int i = 0; i < objectCount; i++) {
                 System.out.println("What is the width of your object?");
                 int objectWidth = scan.nextInt();
@@ -53,7 +54,7 @@ public class Main {
             }
             totalArea = (area - objectTotal);
             int totalAreaF = (int) totalArea;
-            System.out.println("your total area is " + totalAreaF);
+            System.out.println("your total area for painting is " + totalAreaF + " metres squared");
         }
 
 
